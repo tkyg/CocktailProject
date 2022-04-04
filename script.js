@@ -3,6 +3,10 @@ document.addEventListener('DOMContentLoaded', () => {
   fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=vodka')
   .then (response => response.json())
   .then(allCocktailObj => {
-    allCocktailObj.drinks.forEach(cocktail => console.log(cocktail))
+    allCocktailObj.drinks.forEach(cocktail => renderOneDrink(cocktail))
   })
 })
+
+const renderOneDrink = (cocktail) =>{
+  console.log (cocktail)
+}
