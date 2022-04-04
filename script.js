@@ -12,4 +12,8 @@ const renderOneDrink = (cocktail) =>{
   const drinkCard = document.createElement('div')
   drinkCard.className = "card";
   
+  // 1a. Add cocktail information
+  const drinkImage = document.createElement('img')
+  drinkImage.src = cocktail.strDrinkThumb
+  drinkImage.className = 'drink-image';
 }
