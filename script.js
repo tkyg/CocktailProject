@@ -7,6 +7,9 @@ document.addEventListener('DOMContentLoaded', () => {
   })
 })
 
+// Section 1: Displaying single data on DOM
 const renderOneDrink = (cocktail) =>{
-  console.log (cocktail)
+  const drinkCard = document.createElement('div')
+  drinkCard.className = "card";
+  
 }
