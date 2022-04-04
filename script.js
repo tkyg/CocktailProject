@@ -97,6 +97,7 @@ const renderOneDrink = (cocktail) =>{
   likeBtn.id = cocktail.idDrink
 
   likeBtn.addEventListener('click', (e) => {
+    e.target.innerText = `${parseInt(e.currentTarget.dataset.likes) +1} Likes`;
     console.log(likeBtn)
   })
   
