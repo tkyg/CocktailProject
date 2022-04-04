@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   })
 })
 
+// Create Tags and Elements for heading and sub-heading
 const createHeading = document.createElement('h1')
 document.body.appendChild(createHeading)
 createHeading.setAttribute('id', 'heading')
@@ -23,6 +24,7 @@ document.body.appendChild(createSubHeading)
 createSubHeading.setAttribute('id', 'subHeading')
 createSubHeading.innerText = "SEARCH YOUR NEXT COCKTAIL"
 
+// Create tags and elements for submit button
 const createFormSubmit = document.createElement('form')
 document.body.appendChild(createFormSubmit)
 createFormSubmit.setAttribute('id', 'drinks')
@@ -39,9 +41,27 @@ createInputForSubmit.setAttribute('name', 'Submit')
 createInputForSubmit.setAttribute('id', 'submit-btn')
 createFormSubmit.appendChild(createInputForSubmit)
 
+// Create tag and element to uphold data
 const drinksCollection = document.createElement('div')
 drinksCollection.setAttribute ('id', 'drinks-collection')
 document.body.appendChild(drinksCollection)
+
+//Combine ingredient and measurement
+function combineIngredientAndMeasurement(cocktail) {
+let ingredientAndMeasurementArr = [];
+for(let i=1; i<=15; i++){
+  let ingr = `strIngredient${i}`;
+  let meas = `strMeasure${i}`
+  if(!cocktail[ingr] && !cocktail[meas]) {
+    break;
+  }
+  ingredientAndMeasurementArray.push({
+    ingr: cocktail[ingr],
+    meas: cocktail[meas]
+  })
+}
+cocktail.newIngrAndMeas = ingredientAndMeasurementArr;
+}
 
 
 // Section 1: Displaying single data on DOM
