@@ -95,6 +95,10 @@ const renderOneDrink = (cocktail) =>{
   const likeBtn = document.createElement('button')
   likeBtn.innerText = `Like`
   likeBtn.id = cocktail.idDrink
+
+  likeBtn.addEventListener('click', (e) => {
+    console.log(likeBtn)
+  })
   
   drinkCard.append(drinkImage, drinkName, drinkGlassType, drinkInstructions )
   // display ingredients and measurement
