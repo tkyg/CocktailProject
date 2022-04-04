@@ -94,11 +94,12 @@ const renderOneDrink = (cocktail) =>{
   // 1e. create like button, to make it interactive
   const likeBtn = document.createElement('button')
   likeBtn.innerText = `Like`
+  likeBtn.dataset.likes = 0;
   likeBtn.id = cocktail.idDrink
 
   likeBtn.addEventListener('click', (e) => {
     e.target.innerText = `${parseInt(e.currentTarget.dataset.likes) +1} Likes`;
-    console.log(likeBtn)
+    e.currentTarget.dataset.likes++;
   })
   
   drinkCard.append(drinkImage, drinkName, drinkGlassType, drinkInstructions )
