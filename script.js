@@ -12,6 +12,11 @@ document.body.appendChild(createHeading)
 createHeading.setAttribute('id', 'heading')
 createHeading.innerHTML = "COCKTAIL RECIPES"
 
+const createSubHeading = document.createElement('h2')
+document.body.appendChild(createSubHeading)
+createSubHeading.setAttribute('id', 'subHeading')
+createSubHeading.innerHTML = "SEARCH YOUR NEXT COCKTAIL"
+
 // Section 1: Displaying single data on DOM
 const renderOneDrink = (cocktail) =>{
   const drinksCollection = document.createElement('div')
