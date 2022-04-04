@@ -46,26 +46,30 @@ const drinksCollection = document.createElement('div')
 drinksCollection.setAttribute ('id', 'drinks-collection')
 document.body.appendChild(drinksCollection)
 
-//Combine ingredient and measurement
-function combineIngredientAndMeasurement(cocktail) {
-let ingredientAndMeasurementArr = [];
+//Combine ingredient and measurement into an Array
+function combineIngredientsAndMeasurements(cocktail) {
+let ingredientsAndMeasurementsArr = []
 for(let i=1; i<=15; i++){
-  let ingr = `strIngredient${i}`;
-  let meas = `strMeasure${i}`
-  if(!cocktail[ingr] && !cocktail[meas]) {
+  let ingredient = `strIngredient${i}`;
+  let measurement = `strMeasure${i}`;
+
+  if(!cocktail[ingredient] && !cocktail[measurement]) {
     break;
   }
-  ingredientAndMeasurementArray.push({
-    ingr: cocktail[ingr],
-    meas: cocktail[meas]
+
+  ingredientsAndMeasurementsArr.push({
+    ingredient: cocktail[ingredient],
+    measurement: cocktail[measurement]
   })
 }
-cocktail.newIngrAndMeas = ingredientAndMeasurementArr;
+cocktail.newIngredientsAndMeasurements = ingredientsAndMeasurementsArr;
 }
 
 
 // Section 1: Displaying single data on DOM
 const renderOneDrink = (cocktail) =>{
+  combineIngredientsAndMeasurements(cocktail)
+
   const drinkCard = document.createElement('ul')
   drinkCard.className = "card";
   
@@ -91,4 +95,15 @@ const renderOneDrink = (cocktail) =>{
   
   drinksCollection.append(drinkCard)
   
+}
+
+function displayIngredientsAndMeasurements(cocktail, drinkCard){
+  cocktail.newIngredientsAndMeasurements.forEach((ingredientsAndMeasurement) => {
+  const recipeDiv = document.createElement('div');
+  recipeDiv.innerText = `Ingredient: ${ingredientsAndMeasurement.ingredient}`;
+  if(ingredientsAndMeasurement.measurement) {
+    recipeDiv.innerText += `.... Measurement: ${ingredientsAndMeasurement.measurement}`
+  }
+  drinkCard.append(recipeDiv)
+})
 }
