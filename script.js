@@ -17,6 +17,25 @@ document.body.appendChild(createSubHeading)
 createSubHeading.setAttribute('id', 'subHeading')
 createSubHeading.innerHTML = "SEARCH YOUR NEXT COCKTAIL"
 
+const createFormSubmit = document.createElement('form')
+document.body.appendChild(createFormSubmit)
+createFormSubmit.setAttribute('id', 'drinks')
+
+const createInputSubmit = document.createElement('input')
+createInputSubmit.setAttribute('id', 'search')
+createInputSubmit.setAttribute('type', 'text')
+createInputSubmit.setAttribute('name', 'Search')
+createFormSubmit.appendChild(createInputSubmit)
+
+const createInputForSubmit = document.createElement('input')
+createInputForSubmit.setAttribute('type', 'submit')
+createInputForSubmit.setAttribute('name', 'Submit')
+createFormSubmit.appendChild(createInputForSubmit)
+
+
+
+
+
 // Section 1: Displaying single data on DOM
 const renderOneDrink = (cocktail) =>{
   const drinksCollection = document.createElement('div')
