@@ -7,6 +7,10 @@ document.addEventListener('DOMContentLoaded', () => {
   })
 })
 
+const createHeading = document.createElement('h1')
+document.body.appendChild(createHeading)
+createHeading.setAttribute('id', 'heading')
+createHeading.innerHTML = "COCKTAIL RECIPES"
 
 // Section 1: Displaying single data on DOM
 const renderOneDrink = (cocktail) =>{
