@@ -12,8 +12,13 @@ const renderOneDrink = (cocktail) =>{
   const drinkCard = document.createElement('div')
   drinkCard.className = "card";
   
-  // 1a. Add cocktail information
+  //Add cocktail information
+  // 1a. cocktail image - strDrinkThumb
   const drinkImage = document.createElement('img')
   drinkImage.src = cocktail.strDrinkThumb
   drinkImage.className = 'drink-image';
+
+  // 1b. cocktail name - strDrink
+  const drinkName = document.createElement('h2')
+  drinkName.innerText = cocktail.strDrink
 }
