@@ -2,5 +2,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=vodka')
   .then (response => response.json())
-  .then(data => console.log(data))
+  .then(allCocktailObj => {
+    allCocktailObj.drinks.forEach(cocktail => console.log(cocktail))
+  })
 })
