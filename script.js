@@ -7,9 +7,15 @@ document.addEventListener('DOMContentLoaded', () => {
   })
 })
 
+
 // Section 1: Displaying single data on DOM
 const renderOneDrink = (cocktail) =>{
-  const drinkCard = document.createElement('div')
+  const drinksCollection = document.createElement('div')
+  drinksCollection.setAttribute ('id', 'drinks-collection')
+
+  document.body.appendChild(drinksCollection)
+  
+  const drinkCard = document.createElement('ul')
   drinkCard.className = "card";
   
   //Add cocktail information
@@ -17,20 +23,22 @@ const renderOneDrink = (cocktail) =>{
   const drinkImage = document.createElement('img')
   drinkImage.src = cocktail.strDrinkThumb
   drinkImage.className = 'drink-image';
-
+  
   // 1b. cocktail name - strDrink
-  const drinkName = document.createElement('h2')
+  const drinkName = document.createElement('p')
   drinkName.innerText = cocktail.strDrink
-
+  
   // 1c. cocktail glass - strGlass
-  const drinkGlassType = document.createElement('h3')
+  const drinkGlassType = document.createElement('p')
   drinkGlassType.innerText = cocktail.strGlass
-
+  
   // 1d. cocktail instruction - strInstructions
-  const drinkInstructions = document.createElement('h4')
+  const drinkInstructions = document.createElement('p')
   drinkInstructions.innerText = cocktail.strInstructions
-
+  
   drinkCard.append(drinkImage, drinkName, drinkGlassType, drinkInstructions )
+  
+  drinksCollection.append(drinkCard)
 
 
 }
