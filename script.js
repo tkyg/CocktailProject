@@ -35,9 +35,9 @@ createInputSubmit.setAttribute('type', 'text')
 createInputSubmit.setAttribute('name', 'Search')
 createFormSubmit.appendChild(createInputSubmit)
 
-const createInputForSubmit = document.createElement('input')
+const createInputForSubmit = document.createElement('button')
 createInputForSubmit.setAttribute('type', 'submit')
-createInputForSubmit.setAttribute('name', 'Submit')
+createInputForSubmit.innerText = "Submit"
 createInputForSubmit.setAttribute('id', 'submit-btn')
 createFormSubmit.appendChild(createInputForSubmit)
 
@@ -62,6 +62,7 @@ for(let i=1; i<=15; i++){
     measurement: cocktail[measurement]
   })
 }
+console.log(ingredientsAndMeasurementsArr)
 cocktail.newIngredientsAndMeasurements = ingredientsAndMeasurementsArr;
 }
 
