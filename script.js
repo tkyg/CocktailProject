@@ -37,8 +37,7 @@ const renderOneDrink = (cocktail) =>{
   drinkInstructions.innerText = cocktail.strInstructions
   
   drinkCard.append(drinkImage, drinkName, drinkGlassType, drinkInstructions )
-  
-  drinksCollection.append(drinkCard)
 
+  drinksCollection.append(drinkCard)
 
 }
