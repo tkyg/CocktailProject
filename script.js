@@ -90,10 +90,18 @@ const renderOneDrink = (cocktail) =>{
   // 1d. cocktail instruction - strInstructions
   const drinkInstructions = document.createElement('p')
   drinkInstructions.innerText = cocktail.strInstructions
+
+  // 1e. create like button, to make it interactive
+  const likeBtn = document.createElement('button')
+  likeBtn.innerText = `Like`
+  likeBtn.id = cocktail.idDrink
   
   drinkCard.append(drinkImage, drinkName, drinkGlassType, drinkInstructions )
-  
+  // display ingredients and measurement
+  displayIngredientsAndMeasurements(cocktail, drinkCard);
+
   drinksCollection.append(drinkCard)
+  drinkCard.append(likeBtn)
   
 }
 
