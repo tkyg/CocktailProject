@@ -3,12 +3,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const submitBtn = document.querySelector('#submit-btn')
   submitBtn.addEventListener('click', (e) => {
     e.preventDefault()
-    console.log(e.target)
-  })
-  fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=vodka')
-  .then (response => response.json())
-  .then(allCocktailObj => {
-    allCocktailObj.drinks.forEach(cocktail => renderOneDrink(cocktail))
+    const searchTerm = document.querySelector('#search').value
+    fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${searchTerm}`)
+    .then (response => response.json())
+    .then(allCocktailObj => {
+      allCocktailObj.drinks.forEach(cocktail => renderOneDrink(cocktail))
+    })
   })
 })
 
