@@ -23,10 +23,14 @@ const renderOneDrink = (cocktail) =>{
   drinkName.innerText = cocktail.strDrink
 
   // 1c. cocktail glass - strGlass
-  const glassType = document.createElement('h3')
-  glassType.innerText = cocktail.strGlass
+  const drinkGlassType = document.createElement('h3')
+  drinkGlassType.innerText = cocktail.strGlass
 
   // 1d. cocktail instruction - strInstructions
-  const instructions = document.createElement('h4')
-  instructions.innerText = cocktail.strInstructions
+  const drinkInstructions = document.createElement('h4')
+  drinkInstructions.innerText = cocktail.strInstructions
+
+  drinkCard.append(drinkImage, drinkName, drinkGlassType, drinkInstructions )
+
+
 }
