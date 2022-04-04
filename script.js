@@ -1,5 +1,10 @@
 // Get data from local API to show up on DOM
 document.addEventListener('DOMContentLoaded', () => {
+  const submitBtn = document.querySelector('#submit-btn')
+  submitBtn.addEventListener('click', (e) => {
+    e.preventDefault()
+    console.log(e.target)
+  })
   fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=vodka')
   .then (response => response.json())
   .then(allCocktailObj => {
@@ -10,12 +15,12 @@ document.addEventListener('DOMContentLoaded', () => {
 const createHeading = document.createElement('h1')
 document.body.appendChild(createHeading)
 createHeading.setAttribute('id', 'heading')
-createHeading.innerHTML = "COCKTAIL RECIPES"
+createHeading.innerText = "COCKTAIL RECIPES"
 
 const createSubHeading = document.createElement('h2')
 document.body.appendChild(createSubHeading)
 createSubHeading.setAttribute('id', 'subHeading')
-createSubHeading.innerHTML = "SEARCH YOUR NEXT COCKTAIL"
+createSubHeading.innerText = "SEARCH YOUR NEXT COCKTAIL"
 
 const createFormSubmit = document.createElement('form')
 document.body.appendChild(createFormSubmit)
@@ -30,19 +35,16 @@ createFormSubmit.appendChild(createInputSubmit)
 const createInputForSubmit = document.createElement('input')
 createInputForSubmit.setAttribute('type', 'submit')
 createInputForSubmit.setAttribute('name', 'Submit')
+createInputForSubmit.setAttribute('id', 'submit-btn')
 createFormSubmit.appendChild(createInputForSubmit)
 
-
-
+const drinksCollection = document.createElement('div')
+drinksCollection.setAttribute ('id', 'drinks-collection')
+document.body.appendChild(drinksCollection)
 
 
 // Section 1: Displaying single data on DOM
 const renderOneDrink = (cocktail) =>{
-  const drinksCollection = document.createElement('div')
-  drinksCollection.setAttribute ('id', 'drinks-collection')
-
-  document.body.appendChild(drinksCollection)
-  
   const drinkCard = document.createElement('ul')
   drinkCard.className = "card";
   
@@ -65,7 +67,7 @@ const renderOneDrink = (cocktail) =>{
   drinkInstructions.innerText = cocktail.strInstructions
   
   drinkCard.append(drinkImage, drinkName, drinkGlassType, drinkInstructions )
-
+  
   drinksCollection.append(drinkCard)
-
+  
 }
