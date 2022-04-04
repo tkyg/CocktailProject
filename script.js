@@ -99,10 +99,9 @@ const renderOneDrink = (cocktail) =>{
   drinkCard.append(drinkImage, drinkName, drinkGlassType, drinkInstructions )
   // display ingredients and measurement
   displayIngredientsAndMeasurements(cocktail, drinkCard);
-
-  drinksCollection.append(drinkCard)
-  drinkCard.append(likeBtn)
   
+  drinkCard.append(likeBtn)
+  drinksCollection.append(drinkCard)
 }
 
 function displayIngredientsAndMeasurements(cocktail, drinkCard){
