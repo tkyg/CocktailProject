@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${searchTerm}`)
     .then (response => response.json())
     .then(allCocktailObj => {
+      drinksCollection.innerHTML = " ";
       allCocktailObj.drinks.forEach(cocktail => renderOneDrink(cocktail))
     })
   })
