@@ -14,34 +14,36 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 // Create Tags and Elements for heading and sub-heading
+function setAttributes(elements, attribute){
+  for(const key in attribute){
+    elements.setAttribute(key, attribute[key])
+  }
+}
+
 const createHeading = document.createElement('h1')
-createHeading.setAttribute('id', 'heading')
 createHeading.innerText = "COCKTAIL RECIPES"
 
 const createSubHeading = document.createElement('h2')
-createSubHeading.setAttribute('id', 'subHeading')
 createSubHeading.innerText = "SEARCH YOUR NEXT COCKTAIL"
 
 // Create tags and elements for submit button
 const createFormSubmit = document.createElement('form')
-createFormSubmit.setAttribute('id', 'drinks')
 
 const createInput = document.createElement('input')
-createInput.setAttribute('id', 'search')
-createInput.setAttribute('type', 'text')
-createInput.setAttribute('name', 'Search')
 
 const createButton = document.createElement('button')
-createButton.setAttribute('type', 'submit')
 createButton.innerText = "Submit"
-createButton.setAttribute('id', 'submit-btn')
+const drinksCollection = document.createElement('div')
+
+setAttributes (createHeading, {"id": "heading"});
+setAttributes (createSubHeading, {"id": "subHeading"})
+setAttributes (createInput, {"id": "search", "type": "text", "name": "Search"});
+setAttributes (createButton, {"type": "submit", "id": "submit-btn"});
+setAttributes (createFormSubmit, {"id": "drinks"});
+setAttributes (drinksCollection, {"id": "drinks-collection"})
 
 // append input and button to form
 createFormSubmit.append(createInput, createButton)
-
-// Create tag and element to uphold data
-const drinksCollection = document.createElement('div')
-drinksCollection.setAttribute ('id', 'drinks-collection')
 
 // append h1, h2, form, drinksCollection to body
 document.body.append(createHeading, createSubHeading, createFormSubmit, drinksCollection)
