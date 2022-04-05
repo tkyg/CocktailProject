@@ -15,36 +15,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Create Tags and Elements for heading and sub-heading
 const createHeading = document.createElement('h1')
-document.body.appendChild(createHeading)
 createHeading.setAttribute('id', 'heading')
 createHeading.innerText = "COCKTAIL RECIPES"
 
 const createSubHeading = document.createElement('h2')
-document.body.appendChild(createSubHeading)
 createSubHeading.setAttribute('id', 'subHeading')
 createSubHeading.innerText = "SEARCH YOUR NEXT COCKTAIL"
 
 // Create tags and elements for submit button
 const createFormSubmit = document.createElement('form')
-document.body.appendChild(createFormSubmit)
 createFormSubmit.setAttribute('id', 'drinks')
 
-const createInputSubmit = document.createElement('input')
-createInputSubmit.setAttribute('id', 'search')
-createInputSubmit.setAttribute('type', 'text')
-createInputSubmit.setAttribute('name', 'Search')
-createFormSubmit.appendChild(createInputSubmit)
+const createInput = document.createElement('input')
+createInput.setAttribute('id', 'search')
+createInput.setAttribute('type', 'text')
+createInput.setAttribute('name', 'Search')
 
-const createInputForSubmit = document.createElement('button')
-createInputForSubmit.setAttribute('type', 'submit')
-createInputForSubmit.innerText = "Submit"
-createInputForSubmit.setAttribute('id', 'submit-btn')
-createFormSubmit.appendChild(createInputForSubmit)
+const createButton = document.createElement('button')
+createButton.setAttribute('type', 'submit')
+createButton.innerText = "Submit"
+createButton.setAttribute('id', 'submit-btn')
+
+// append input and button to form
+createFormSubmit.append(createInput, createButton)
 
 // Create tag and element to uphold data
 const drinksCollection = document.createElement('div')
 drinksCollection.setAttribute ('id', 'drinks-collection')
-document.body.appendChild(drinksCollection)
+
+// append h1, h2, form, drinksCollection to body
+document.body.append(createHeading, createSubHeading, createFormSubmit, drinksCollection)
 
 //Combine ingredient and measurement into an Array
 function combineIngredientsAndMeasurements(cocktail) {
