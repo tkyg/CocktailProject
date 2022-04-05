@@ -4,12 +4,15 @@ document.addEventListener('DOMContentLoaded', () => {
   submitBtn.addEventListener('click', (e) => {
     e.preventDefault()
     const searchTerm = document.querySelector('#search').value
-    fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${searchTerm}`)
-    .then (response => response.json())
-    .then(allCocktailObj => {
-      drinksCollection.innerHTML = " ";
-      allCocktailObj.drinks.forEach(cocktail => renderOneDrink(cocktail))
-    })
+    if (searchTerm){
+      fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${searchTerm}`)
+      .then (response => response.json())
+      .then(allCocktailObj => {
+        const drinksCollection = document.querySelector('#drinks-collection')
+        drinksCollection.innerHTML = " ";
+        allCocktailObj.drinks.forEach(cocktail => renderOneDrink(cocktail))
+      })
+    }
   })
 })
 
@@ -34,20 +37,21 @@ const createInput = document.createElement('input')
 const createButton = document.createElement('button')
 createButton.innerText = "Submit"
 
-const drinksCollection = document.createElement('div')
+const drinkCollection = document.createElement('div')
 
 setAttributes (createHeading, {"id": "heading"});
 setAttributes (createSubHeading, {"id": "subHeading"})
 setAttributes (createInput, {"id": "search", "type": "text", "name": "Search"});
 setAttributes (createButton, {"type": "submit", "id": "submit-btn"});
 setAttributes (createFormSubmit, {"id": "drinks"});
-setAttributes (drinksCollection, {"id": "drinks-collection"})
+setAttributes (drinkCollection, {"id": "drinks-collection"})
 
 // append input and button to form
 createFormSubmit.append(createInput, createButton)
 
 // append h1, h2, form, drinksCollection to body
-document.body.append(createHeading, createSubHeading, createFormSubmit, drinksCollection)
+document.body.append(createHeading, createSubHeading, createFormSubmit, drinkCollection)
+
 
 //Combine ingredient and measurement into an Array
 function combineIngredientsAndMeasurements(cocktail) {
@@ -65,7 +69,6 @@ for(let i=1; i<=15; i++){
     measurement: cocktail[measurement]
   })
 }
-console.log(ingredientsAndMeasurementsArr)
 cocktail.newIngredientsAndMeasurements = ingredientsAndMeasurementsArr;
 }
 
@@ -105,12 +108,15 @@ const renderOneDrink = (cocktail) =>{
     e.currentTarget.dataset.likes++;
   })
   
-  drinkCard.append(drinkImage, drinkName, drinkGlassType, drinkInstructions )
+  drinkCard.append(drinkImage, drinkName, drinkGlassType, drinkInstructions)
+
+  const drinksCollection = document.querySelector('#drinks-collection')
+  drinksCollection.append(drinkCard)
   // display ingredients and measurement
   displayIngredientsAndMeasurements(cocktail, drinkCard);
   
   drinkCard.append(likeBtn)
-  drinksCollection.append(drinkCard)
+
 }
 
 function displayIngredientsAndMeasurements(cocktail, drinkCard){
