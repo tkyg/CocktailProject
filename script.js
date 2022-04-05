@@ -33,6 +33,7 @@ const createInput = document.createElement('input')
 
 const createButton = document.createElement('button')
 createButton.innerText = "Submit"
+
 const drinksCollection = document.createElement('div')
 
 setAttributes (createHeading, {"id": "heading"});
@@ -68,8 +69,7 @@ console.log(ingredientsAndMeasurementsArr)
 cocktail.newIngredientsAndMeasurements = ingredientsAndMeasurementsArr;
 }
 
-
-// Section 1: Displaying single data on DOM
+// Section 1: Displaying data on DOM
 const renderOneDrink = (cocktail) =>{
   combineIngredientsAndMeasurements(cocktail)
 
