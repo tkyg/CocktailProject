@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
         drinksCollection.innerHTML = " ";
         allCocktailObj.drinks.forEach(cocktail => renderOneDrink(cocktail))
       })
+      document.querySelector('#search').value = " "
     }
   })
 })
