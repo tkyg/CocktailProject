@@ -1,5 +1,4 @@
-# **Cocktail Recipes**
-***
+# **COCKTAIL RECIPES**
 
 ## Description
 
