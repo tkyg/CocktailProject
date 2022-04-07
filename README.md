@@ -2,7 +2,7 @@
 
 ## Description
 
-So you want to impress family and friends that you have invited, with a special cocktail? Or do you want a coctail to help you ease into a friday evening after a long week? Perhaps you are a cocktail enthusiast aspiring to be a bartender. Regardless of the occasion or your level of proficiency, the web application, [Cocktail Recipes](file:///Users/kelsang/Development/Code/Phase_One_Project/index.html), is available for a quick search of your favorite cocktail. The only information needed is your choice of alcohol, and you are returned with an image card of some of the most popular cocktail recipes that can be mixed. Each cocktail is presented with a list of ingredients and its correlated measurement, with instructions on how to shake that perfect cocktail. If you love what you have stirred, there is even a like button to show your approval of it.
+So you want to impress family and friends that you have invited, with a special cocktail? Or do you want a coctail to help you ease into a friday evening after a long week? Perhaps you are a cocktail enthusiast aspiring to be a bartender. Regardless of the occasion or your level of proficiency, the web application, [Cocktail Recipes](https://tkyg.github.io/CocktailProject/), is available for a quick search of your favorite cocktail. The only information needed is your choice of alcohol, and you are returned with an image card of some of the most popular cocktail recipes that can be mixed. Each cocktail is presented with a list of ingredients and its correlated measurement, with instructions on how to shake that perfect cocktail. If you love what you have stirred, there is even a like button to show your approval of it.
 
 
 Here is how easily this single page web application can be used. 
