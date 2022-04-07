@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
         drinksCollection.innerHTML = " ";
         allCocktailObj.drinks.forEach(cocktail => renderOneDrink(cocktail))
       })
-      document.querySelector('#search').value = " "
     }
   })
 })
@@ -33,6 +32,9 @@ createSubHeading.innerText = "SEARCH YOUR NEXT COCKTAIL"
 // Create tags and elements for submit button
 const createFormSubmit = document.createElement('form')
 
+const createLabel = document.createElement('label')
+createLabel.innerText = "Enter Your Choice of Alcohol => "
+
 const createInput = document.createElement('input')
 
 const createButton = document.createElement('button')
@@ -42,13 +44,14 @@ const drinkCollection = document.createElement('div')
 
 setAttributes (createHeading, {"id": "heading"});
 setAttributes (createSubHeading, {"id": "subHeading"})
+setAttributes (createLabel, {"for": "base-alcohol"})
 setAttributes (createInput, {"id": "search", "type": "text", "name": "Search"});
 setAttributes (createButton, {"type": "submit", "id": "submit-btn"});
 setAttributes (createFormSubmit, {"id": "drinks"});
 setAttributes (drinkCollection, {"id": "drinks-collection"})
 
 // append input and button to form
-createFormSubmit.append(createInput, createButton)
+createFormSubmit.append(createLabel, createInput, createButton)
 
 // append h1, h2, form, drinksCollection to body
 document.body.append(createHeading, createSubHeading, createFormSubmit, drinkCollection)
@@ -113,6 +116,7 @@ const renderOneDrink = (cocktail) =>{
 
   const drinksCollection = document.querySelector('#drinks-collection')
   drinksCollection.append(drinkCard)
+  
   // display ingredients and measurement
   displayIngredientsAndMeasurements(cocktail, drinkCard);
   
