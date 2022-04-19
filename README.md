@@ -21,6 +21,11 @@ Here is how easily this single page web application can be used.
 
 * You can scroll through the results, and even click the like button at the end of each cocktail card. The like button displays the amount of likes received for that cocktail, which you could use as your deciding factor in choosing your next cocktail.
 
+## Links
+To watch a short YouTube video of features and functionality of my web application [Click Here](https://youtu.be/AJpHLlWJEW4)
+
+To read about my blogs [Click Here](https://tnztkyg.tumblr.com/)
+
 ## Authors and Acknowledgment 
 
 The API was collected from [The Cocktail DB](https://www.thecocktaildb.com/api.php)

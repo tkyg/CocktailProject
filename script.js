@@ -2,21 +2,22 @@
 document.addEventListener('DOMContentLoaded', () => {
   const submitBtn = document.querySelector('#submit-btn')
   submitBtn.addEventListener('click', (e) => {
-    e.preventDefault()
     const searchTerm = document.querySelector('#search').value
     if (searchTerm){
       fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${searchTerm}`)
       .then (response => response.json())
       .then(allCocktailObj => {
+        console.log(allCocktailObj)
         const drinksCollection = document.querySelector('#drinks-collection')
         drinksCollection.innerHTML = " ";
         allCocktailObj.drinks.forEach(cocktail => renderOneDrink(cocktail))
       })
     }
+    document.querySelector('#search').value = '';
   })
 })
 
-// Create Tags and Elements for heading and sub-heading
+// Create Tags and Elements
 function setAttributes(elements, attribute){
   for(const key in attribute){
     elements.setAttribute(key, attribute[key])
@@ -24,10 +25,10 @@ function setAttributes(elements, attribute){
 }
 
 const createHeading = document.createElement('h1')
-createHeading.innerText = "COCKTAIL RECIPES"
+createHeading.textContent = "COCKTAIL RECIPES"
 
 const createSubHeading = document.createElement('h2')
-createSubHeading.innerText = "SEARCH YOUR NEXT COCKTAIL"
+createSubHeading.textContent = "SEARCH YOUR NEXT COCKTAIL"
 
 // Create tags and elements for submit button
 const createFormSubmit = document.createElement('form')
@@ -46,7 +47,7 @@ setAttributes (createHeading, {"id": "heading"});
 setAttributes (createSubHeading, {"id": "subHeading"})
 setAttributes (createLabel, {"for": "base-alcohol"})
 setAttributes (createInput, {"id": "search", "type": "text", "name": "Search"});
-setAttributes (createButton, {"type": "submit", "id": "submit-btn"});
+setAttributes (createButton, {"type": "button", "id": "submit-btn"});
 setAttributes (createFormSubmit, {"id": "drinks"});
 setAttributes (drinkCollection, {"id": "drinks-collection"})
 
@@ -59,21 +60,21 @@ document.body.append(createHeading, createSubHeading, createFormSubmit, drinkCol
 
 //Combine ingredient and measurement into an Array
 function combineIngredientsAndMeasurements(cocktail) {
-let ingredientsAndMeasurementsArr = []
-for(let i=1; i<=15; i++){
-  let ingredient = `strIngredient${i}`;
-  let measurement = `strMeasure${i}`;
+  let ingredientsAndMeasurementsArr = []
+  for(let i=1; i<=15; i++){
+    let ingredient = `strIngredient${i}`;
+    let measurement = `strMeasure${i}`;
 
-  if(!cocktail[ingredient] && !cocktail[measurement]) {
-    break;
+    if(!cocktail[ingredient] && !cocktail[measurement]) {
+      break;
+    }
+
+    ingredientsAndMeasurementsArr.push({
+      ingredient: cocktail[ingredient],
+      measurement: cocktail[measurement]
+    })
   }
-
-  ingredientsAndMeasurementsArr.push({
-    ingredient: cocktail[ingredient],
-    measurement: cocktail[measurement]
-  })
-}
-cocktail.newIngredientsAndMeasurements = ingredientsAndMeasurementsArr;
+  cocktail.newIngredientsAndMeasurements = ingredientsAndMeasurementsArr;
 }
 
 // Section 1: Displaying data on DOM
@@ -108,8 +109,8 @@ const renderOneDrink = (cocktail) =>{
   likeBtn.id = cocktail.idDrink
 
   likeBtn.addEventListener('click', (e) => {
-    e.target.innerText = `${parseInt(e.currentTarget.dataset.likes) +1} Likes`;
     e.currentTarget.dataset.likes++;
+    e.target.innerText = `${e.currentTarget.dataset.likes} Likes`;
   })
   
   drinkCard.append(drinkImage, drinkName, drinkGlassType, drinkInstructions)
@@ -124,13 +125,15 @@ const renderOneDrink = (cocktail) =>{
 
 }
 
+// Render to appear on DOM
 function displayIngredientsAndMeasurements(cocktail, drinkCard){
   cocktail.newIngredientsAndMeasurements.forEach((ingredientsAndMeasurement) => {
-  const recipeDiv = document.createElement('div');
-  recipeDiv.innerText = `Ingredient: ${ingredientsAndMeasurement.ingredient}`;
-  if(ingredientsAndMeasurement.measurement) {
-    recipeDiv.innerText += `.... Measurement: ${ingredientsAndMeasurement.measurement}`
-  }
-  drinkCard.append(recipeDiv)
-})
+    const recipeDiv = document.createElement('div');
+    recipeDiv.innerText = `Ingredient: ${ingredientsAndMeasurement.ingredient}`;
+    if(ingredientsAndMeasurement.measurement) {
+      recipeDiv.innerText += `.... Measurement: ${ingredientsAndMeasurement.measurement}`
+    }
+    drinkCard.append(recipeDiv)
+  })
 }
+
